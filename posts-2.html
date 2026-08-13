@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · kr-pbn-bp-016</title>
+  <meta name="description" content="kr-pbn-bp-016에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://suwon-web-marketing.pbn-builder.xyz/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* CSS Variables & Reset */
+ :root {
+ --primary-bg: #0a0a0a;
+ --secondary-bg: #141414;
+ --text-main: #f0f0f0;
+ --text-muted: #9ca3af;
+ --accent-gold: #d4af37;
+ --accent-gold-hover: #b5952f;
+ --border-color: #262626;
+ --font-serif: 'Noto Serif KR', serif;
+ --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+ }
+
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+ body {
+ background-color: var(--primary-bg);
+ color: var(--text-main);
+ font-family: var(--font-sans);
+ line-height: 1.6;
+ -webkit-font-smoothing: antialiased;
+ }
+
+ /* Typography & Layout */
+ h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; color: var(--text-main); }
+ h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em; }
+ h2 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--accent-gold); border-left: 3px solid var(--accent-gold); padding-left: 1rem; }
+ h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
+ p { margin-bottom: 1.5rem; color: var(--text-muted); font-size: 1.05rem; }
+ 
+ a { text-decoration: none; color: inherit; transition: 0.3s; }
+ a:hover { color: var(--accent-gold); }
+
+ .container {
+ max-width: 1024px;
+ margin: 0 auto;
+ padding: 0 1.5rem;
+ }
+
+ /* Navigation */
+ header {
+ background: rgba(10, 10, 10, 0.9);
+ backdrop-filter: blur(10px);
+ border-bottom: 1px solid var(--border-color);
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ }
+
+ nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ height: 80px;
+ }
+
+ .logo {
+ font-family: var(--font-serif);
+ font-size: 1.5rem;
+ font-weight: 700;
+ color: var(--accent-gold);
+ }
+
+ .nav-links { display: flex; gap: 2rem; list-style: none; }
+ .nav-links li a { font-size: 0.95rem; font-weight: 500; }
+ .cta-btn {
+ background-color: var(--accent-gold);
+ color: var(--primary-bg);
+ padding: 0.6rem 1.2rem;
+ border-radius: 4px;
+ font-weight: 600;
+ }
+ .cta-btn:hover { background-color: var(--accent-gold-hover); color: white; }
+
+ /* Mobile Menu */
+ .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+ .bar { width: 25px; height: 3px; background-color: var(--text-main); transition: 0.3s; }
+
+ @media (max-width: 768px) {
+ .nav-links {
+ display: none;
+ position: absolute;
+ top: 80px;
+ left: 0;
+ width: 100%;
+ background-color: var(--secondary-bg);
+ flex-direction: column;
+ padding: 2rem;
+ border-bottom: 1px solid var(--border-color);
+ }
+ .nav-links.active { display: flex; }
+ .menu-toggle { display: flex; }
+ h1 { font-size: 2rem; }
+ }
+
+ /* Hero Section */
+ .hero {
+ padding: 6rem 0;
+ text-align: center;
+ border-bottom: 1px solid var(--border-color);
+ }
+ .hero h1 { max-width: 800px; margin: 0 auto 1.5rem auto; }
+ .hero p { max-width: 600px; margin: 0 auto; font-size: 1.2rem; }
+
+ /* Content Sections */
+ .content-section { padding: 4rem 0; }
+ .grid-layout {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 3rem;
+ margin-top: 3rem;
+ }
+ 
+ .card {
+ background: var(--secondary-bg);
+ padding: 2rem;
+ border: 1px solid var(--border-color);
+ border-radius: 8px;
+ transition: transform 0.3s;
+ }
+ .card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
+
+ .highlight-box {
+ background: linear-gradient(45deg, #141414, #1a1a1a);
+ padding: 2rem;
+ border-left: 4px solid var(--accent-gold);
+ margin: 2rem 0;
+ }
+
+ /* FAQ Section */
+ .faq-item {
+ border-bottom: 1px solid var(--border-color);
+ padding: 1.5rem 0;
+ }
+ .faq-question {
+ font-weight: 600;
+ font-size: 1.1rem;
+ color: var(--text-main);
+ margin-bottom: 0.5rem;
+ cursor: pointer;
+ display: flex;
+ justify-content: space-between;
+ }
+ .faq-answer {
+ color: var(--text-muted);
+ font-size: 0.95rem;
+ max-height: 0;
+ overflow: hidden;
+ transition: max-height 0.3s ease-out;
+ }
+ .faq-item.active .faq-answer { max-height: 200px; margin-top: 1rem; }
+
+ /* Footer */
+ footer {
+ background-color: var(--secondary-bg);
+ padding: 4rem 0 2rem;
+ border-top: 1px solid var(--border-color);
+ margin-top: 4rem;
+ }
+ .footer-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 2rem;
+ margin-bottom: 3rem;
+ }
+ .footer-info p { font-size: 0.9rem; margin-bottom: 0.5rem; }
+ .copyright { text-align: center; font-size: 0.8rem; color: #555; border-top: 1px solid #222; padding-top: 2rem; }
+ 
+ @media (max-width: 768px) {
+ .grid-layout { grid-template-columns: 1fr; }
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · kr-pbn-bp-016">
+  <meta property="og:description" content="kr-pbn-bp-016에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://suwon-web-marketing.pbn-builder.xyz/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <div class="container">
+ <nav>
+ <a href="/" class="logo">SUWON VIRAL.</a>
+ <ul class="nav-links">
+ <li><a href="/">홈</a></li>
+ <li><a href="/about">소개</a></li>
+ <li><a href="/service">서비스</a></li>
+ <li><a href="/portfolio">포트폴리오</a></li>
+ <li><a href="/contact" class="cta-btn">무료 진단받기</a></li>
+ </ul>
+ <div class="menu-toggle">
+ 
+ 
+ 
+ </div>
+ </nav>
+ </div>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 31개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0049.html">수원 바이럴 마케팅 업체 전문가가 분석한 망원 노래방 추천정보와 이용 팁</a>
+        <p class="post-item__summary">친구들과 갑작스럽게 약속을 잡고 망원동 거리를 걷다 보면 어디로 들어가야 할지 고민되는 순간이 찾아옵니다. 낯선 동네에서 무작정 간판만 보고 결정했다가 낭패를 본 경험은 누구나 한 번쯤 있을 것입니</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0050.html">수원 바이럴 마케팅 업체가 조언하는 홍대 노래방 추천정보와 시간대 선택 전략</a>
+        <p class="post-item__summary">많은 사람이 홍대 인근 노래방은 어디를 가도 비슷할 것이라고 오해하곤 합니다. 하지만 실제 방문해 보면 매장마다 시설의 노후도와 서비스 품질, 그리고 음향 기기의 세팅 상태가 천차만별이라는 사실을 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0051.html">수원 바이럴 마케팅 업체가 분석한 공덕 셔츠룸 추천정보와 인원별 팁</a>
+        <p class="post-item__summary">품질 좋은 셔츠룸을 결정하기 위해서는 쾌적한 내부 환경과 인원수에 최적화된 룸 규모, 그리고 투명한 운영 체계가 충족되어야 합니다. 공덕 지역에서 적절한 장소를 찾을 때 많은 이들이 이 기본적인 요</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0052.html">수원 바이럴 마케팅 업체가 알려주는 연남 유흥 추천정보 확인과 비교 기준</a>
+        <p class="post-item__summary">여러분은 연남 지역에서 유흥 시설을 선택할 때 무엇을 가장 우선순위로 두시나요? 단순히 분위기가 좋아 보이거나 위치가 가깝다는 이유로 결정하고 있지는 않으신지 스스로 질문해 볼 필요가 있습니다. 매</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0053.html">수원 바이럴 마케팅 업체 정보를 활용한 마곡 가라오케 추천정보 선별법</a>
+        <p class="post-item__summary">수원 바이럴 마케팅 업체들이 홍보 전략을 수립할 때 광고의 진정성을 우선시하듯, 가라오케를 선택할 때도 후기의 신뢰도를 꼼꼼히 따져보는 것이 중요합니다. 단순히 상위에 노출된 글이라고 해서 무조건 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0054.html">수원 바이럴 마케팅 업체 분석법으로 본 마곡 유흥 추천정보 가격 기준</a>
+        <p class="post-item__summary">수원 바이럴 마케팅 업체가 시장의 데이터를 분석하여 광고 효과를 극대화하듯, 유흥 업소를 선택할 때도 가격의 합리성을 판단하는 명확한 기준이 필요합니다. 가격은 단순히 지불하는 비용의 액수가 아니라</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0055.html">수원 바이럴 마케팅 업체 관점의 합정 노래방 추천정보 예약 절차 확인</a>
+        <p class="post-item__summary">수원 바이럴 마케팅 업체들이 캠페인 초기 설계를 잘못해 성과를 내지 못하는 것과 마찬가지로, 노래방 예약 역시 사전 절차를 소홀히 하면 당일 큰 불편을 겪게 됩니다. 많은 사람들이 단순히 매장 이름</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0196.html">수원 바이럴 마케팅 업체가 분석한 마포 단체 회식용 대형 룸 노래방 가격 정보</a>
+        <p class="post-item__summary">직장인들에게 회식 장소 선정은 항상 고민스러운 숙제와 같습니다. 수원 바이럴 마케팅 업체 전문가들이 조언하듯, 명확한 기준을 세우면 복잡한 정보 속에서도 최선의 선택지를 빠르게 찾을 수 있습니다. </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0197.html">수원 바이럴 마케팅 업체 선별 후 합정 셔츠룸 단골들이 뽑은 핫플 매거진 탐독하기</a>
+        <p class="post-item__summary">디지털 환경에서 홍보 대행사를 선택하는 일은 마치 신뢰할 만한 정보를 찾는 과정과 유사합니다. 수원 바이럴 마케팅 업체 선별을 마쳤다면 다음 단계는 실제 현장의 생생한 목소리를 듣는 것입니다. 합정</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0198.html">수원 바이럴 마케팅 업체 도움으로 보는 셔츠룸 사이트 비교 및 가격 판단 가이드</a>
+        <p class="post-item__summary">성공적인 전략을 수립하기 위해서는 수원 바이럴 마케팅 업체와 같은 전문가의 분석이 큰 도움이 됩니다. 시장의 정보를 정확하게 파악하는 것은 효율적인 자원 배분을 위해 무엇보다 중요합니다. 이제는 정</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0199.html">수원 바이럴 마케팅 업체와 연계한 구글 인덱싱 속도 초고속 광회선 대역폭 최적화 실무</a>
+        <p class="post-item__summary">많은 프로젝트가 준비 과정에서 기술적인 난관에 부딪히곤 합니다. 수원 바이럴 마케팅 업체와 협업할 때 가장 먼저 확인해야 할 점은 데이터 처리 환경입니다. 제대로 된 준비 없이 시작하면 이후의 모든</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
